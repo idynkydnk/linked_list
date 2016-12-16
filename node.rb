@@ -1,5 +1,5 @@
 class Node
-  attr_reader :value
+  attr_accessor :value, :next_node
   
   def initialize 
     @value = nil 
@@ -7,7 +7,9 @@ class Node
   end
 
   def next_node= value
-    @next_node = Node.new value
+    x = Node.new
+    @next_node = x 
+    @next_node.value = value
   end
 
 end
