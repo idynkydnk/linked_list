@@ -26,8 +26,9 @@ class LinkedList
     if list.next_node
       count += 1
       size_recur list.next_node, count
+    else
+      return count
     end
-    return count
   end
 
   def append new_node_value
