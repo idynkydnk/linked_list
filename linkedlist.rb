@@ -6,6 +6,27 @@ class LinkedList
    @i = 0
   end
 
+  def prepend new_node_value
+    x = Node.new
+    x.value = new_node_value
+    x.set_actual_next_node(@list)
+    @list = x
+  end
+
+  def size
+    i = 0
+    if @list.value
+      i += 1
+    end
+    while next_node?(@list)
+      i += 1
+    end
+    return i
+  end
+   
+  def size_recur list
+    
+
   def append new_node_value
     if !@list.value
       @list.value = new_node_value

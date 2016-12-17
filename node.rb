@@ -12,4 +12,8 @@ class Node
     @next_node.value = value
   end
 
+  def set_actual_next_node node
+    @next_node = node
+  end
+
 end
