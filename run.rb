@@ -10,4 +10,5 @@ x.append 23
 x.prepend 1
 x.append "heeellllooooo"
 x.to_s
-puts "Should have printed 1, 43, 8, 2, 9, 29, 23"
+puts x.size
+puts "Size should be 8"

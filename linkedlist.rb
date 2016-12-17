@@ -1,6 +1,7 @@
 require_relative "node.rb"
 
 class LinkedList
+
   def initialize
    @list = Node.new
    @i = 0
@@ -18,14 +19,16 @@ class LinkedList
     if @list.value
       i += 1
     end
-    while next_node?(@list)
-      i += 1
-    end
-    return i
+    size_recur @list, i
   end
    
-  def size_recur list
-    
+  def size_recur list, count
+    if list.next_node
+      count += 1
+      size_recur list.next_node, count
+    end
+    return count
+  end
 
   def append new_node_value
     if !@list.value
@@ -61,6 +64,7 @@ class LinkedList
     end
     to_s_recur(list.next_node)
   end
+
   def last_node list
     if !list.next_node
       return list
