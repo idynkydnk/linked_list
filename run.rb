@@ -14,4 +14,10 @@ puts "2... " + x.at(2).to_s
 puts "5... " + x.size.to_s
 
 y = LinkedList.new
+y.to_s
+y.append 4
+y.append 2
+y.to_s
+y.pop
+y.to_s
 puts "0... " + y.size.to_s

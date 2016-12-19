@@ -53,11 +53,25 @@ class LinkedList
   end
 
   def pop
-    
+    if !@list.next_node
+      @list.value = nil 
+    elsif !@list.next_node.next_node
+      puts "yeah"
+      @list.next_node.delete
+    else
+      pop_recur(@list.next_node)
+    end
   end
  
   
   private
+
+  def pop_recur list
+    if !list.next_node
+      return list.value = nil
+    end
+    pop_recur list.next_node
+  end
 
   def at_recur list, count, index
     if count == index
