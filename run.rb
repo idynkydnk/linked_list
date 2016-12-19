@@ -25,3 +25,6 @@ y.pop
 y.to_s
 y.pop
 y.to_s
+puts y.contains?(7).to_s
+puts y.contains?(34).to_s
+puts y.contains?(1).to_s

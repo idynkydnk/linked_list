@@ -61,9 +61,30 @@ class LinkedList
       pop_recur(@list.next_node)
     end
   end
+
+  def contains? value
+    if @list.value == value
+      return true
+    elsif @list.next_node
+      contains_recur(@list.next_node, value)
+    else
+      return false
+    end
+  end
  
   
   private
+
+  
+  def contains_recur list, value
+    if list.value == value
+      return true
+    elsif list.next_node 
+      contains_recur(list.next_node, value)
+    else
+      return false
+    end
+  end
 
   def pop_recur list
     if !list.next_node.next_node
