@@ -3,8 +3,18 @@ require_relative "node.rb"
 class LinkedList
 
   def initialize
-   @list = Node.new
-   @i = 0
+   @head = nil
+   @tail = nil
+   @count = 0
+  end
+
+  def append node
+    if @count == 0
+      @head = node
+      @tail = @head
+      @count += 1
+    
+    end
   end
 
   def prepend new_node_value
@@ -22,19 +32,7 @@ class LinkedList
     size_recur @list, i
   end
    
-  def append new_node_value
-    if !@list.value
-      @list.value = new_node_value
-    else
-      if !@list.next_node
-        @list.next_node = new_node_value
-      else
-        last_node(@list.next_node).next_node = new_node_value
-      end
-    end
-  end
-
-  def to_s
+    def to_s
     print "( " + @list.value.to_s + " ) -> "
     to_s_recur(@list)
     puts "nil"
