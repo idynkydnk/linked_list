@@ -22,15 +22,6 @@ class LinkedList
     size_recur @list, i
   end
    
-  def size_recur list, count
-    if list.next_node
-      count += 1
-      size_recur list.next_node, count
-    else
-      return count
-    end
-  end
-
   def append new_node_value
     if !@list.value
       @list.value = new_node_value
@@ -42,19 +33,56 @@ class LinkedList
       end
     end
   end
+
+  def to_s
+    print "( " + @list.value.to_s + " ) -> "
+    to_s_recur(@list)
+    puts "nil"
+  end
+
+  def head
+    @list.value
+  end
+
+  def tail
+    last_node(@list).value
+  end
+
+  def at index
+    at_recur(@list, 0, index)
+  end
+
+  def pop
+    
+  end
+ 
   
+  private
+
+  def at_recur list, count, index
+    if count == index
+      return list.value
+    else
+      count += 1
+      at_recur(list.next_node, count, index)
+    end
+  end
+
+  def size_recur list, count
+    if list.next_node
+      count += 1
+      size_recur list.next_node, count
+    else
+      return count
+    end
+  end
+
   def append_recur list, new_node_value
     if !list.next_node
       list.next_node = new_node_value
     else
       append_recur list.next_node, new_node_value
     end
-  end
-
-  def to_s
-    print "( " + @list.value.to_s + " ) -> "
-    to_s_recur(@list)
-    puts "nil"
   end
 
   def to_s_recur list
