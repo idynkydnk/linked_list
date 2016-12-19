@@ -17,7 +17,11 @@ y = LinkedList.new
 y.to_s
 y.append 4
 y.append 2
+y.append 1
+y.prepend 8
+y.prepend 7
 y.to_s
 y.pop
 y.to_s
-puts "0... " + y.size.to_s
+y.pop
+y.to_s
