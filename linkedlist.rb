@@ -71,11 +71,34 @@ class LinkedList
       return false
     end
   end
+
+  def find value
+    index = 0
+    if @list.value == value
+      return index 
+    elsif @list.next_node
+      index += 1
+      find_recur(@list.next_node, index, value)
+    else
+      return nil
+    end
+  end
  
   
   private
 
   
+  def find_recur list, index, value
+    if list.value == value
+      return index
+    elsif list.next_node
+      index += 1
+      find_recur(list.next_node, index, value)
+    else
+      return nil
+    end
+  end
+
   def contains_recur list, value
     if list.value == value
       return true

@@ -28,3 +28,7 @@ y.to_s
 puts y.contains?(7).to_s
 puts y.contains?(34).to_s
 puts y.contains?(1).to_s
+puts y.find(7).to_s
+puts y.find(34).to_s
+puts y.find(8).to_s
+puts y.find(4).to_s
