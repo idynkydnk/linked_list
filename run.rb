@@ -21,3 +21,5 @@ x.pop
 x.to_s
 puts x.contains?(21).to_s
 puts x.contains?(1).to_s
+puts x.find(23).to_s
+puts x.find(323233).to_s
