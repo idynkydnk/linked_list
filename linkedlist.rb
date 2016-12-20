@@ -105,10 +105,18 @@ class LinkedList
 
   def insert_at index, data
     node = @head
+    new_node = Node.new(data)
     temp_index = 0
-    until temp_index == index
+    if temp_index == index
+      @head = new_node
+      if 
+    elsif temp_index == (index - 1)
+      node.next_node =  
+      until temp_index == index
       node = node.next_node
+      temp_index += 1
     end
+    @count += 1
     
  
  end
