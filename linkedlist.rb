@@ -8,69 +8,87 @@ class LinkedList
    @count = 0
   end
 
-  def append node
-    if @count == 0
+  def append data
+    node = Node.new(data)
+    if @head.nil?
       @head = node
       @tail = @head
-      @count += 1
-    
+    else
+      @tail.next_node = node
+      @tail = @tail.next_node
+    end
+    @count += 1
+  end
+
+  def to_s
+    node = @head
+    while node
+      print "( " + node.value.to_s + " ) -> "
+      if node.next_node
+        node = node.next_node
+      else
+        puts "nil"
+        node = nil
+      end
     end
   end
 
-  def prepend new_node_value
-    x = Node.new
-    x.value = new_node_value
-    x.set_actual_next_node(@list)
-    @list = x
+  def prepend data 
+    node = Node.new(data)
+    node.next_node = @head
+    @head = node
+    @count += 1
   end
 
   def size
-    i = 0
-    if @list.value
-      i += 1
-    end
-    size_recur @list, i
+    @count
   end
    
-    def to_s
-    print "( " + @list.value.to_s + " ) -> "
-    to_s_recur(@list)
-    puts "nil"
-  end
-
   def head
-    @list.value
+    @head.value
   end
 
   def tail
-    last_node(@list).value
+    @tail.value
   end
 
   def at index
-    at_recur(@list, 0, index)
+    node = @head
+    index.times do
+      node = node.next_node
+    end
+    node.value
   end
 
   def pop
-    if !@list.next_node
-      @list.value = nil 
-    elsif !@list.next_node.next_node
-      @list.set_actual_next_node(nil)
+    node = @head
+    if node.next_node.nil?
+      @head = nil
+      @tail = nil
     else
-      pop_recur(@list.next_node)
+      until node.next_node.next_node.nil?
+        node = node.next_node
+      end
+      node.next_node = nil
+      @tail = node
     end
-  end
+    unless @count == 0
+      @count -= 1
+    end
+   end
 
   def contains? value
-    if @list.value == value
-      return true
-    elsif @list.next_node
-      contains_recur(@list.next_node, value)
-    else
-      return false
+    node = @head
+    while node
+      if node.value == value
+        return true
+      else
+        node = node.next_node
+      end
     end
+    return false
   end
-
-  def find value
+    def find value
     index = 0
     if @list.value == value
       return index 
