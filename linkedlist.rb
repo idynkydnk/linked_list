@@ -8,7 +8,7 @@ class LinkedList
    @count = 0
   end
 
-  def append data
+  def append(data)
     node = Node.new(data)
     if @head.nil?
       @head = node
@@ -33,7 +33,7 @@ class LinkedList
     end
   end
 
-  def prepend data 
+  def prepend(data)
     node = Node.new(data)
     node.next_node = @head
     @head = node
@@ -52,7 +52,7 @@ class LinkedList
     @tail.value
   end
 
-  def at index
+  def at(index)
     node = @head
     index.times do
       node = node.next_node
@@ -77,7 +77,7 @@ class LinkedList
     end
    end
 
-  def contains? value
+  def contains?(value)
     node = @head
     while node
       if node.value == value
@@ -89,7 +89,7 @@ class LinkedList
     return false
   end
     
-  def find value 
+  def find(value)
     node = @head
     index = 0
     while node
@@ -103,7 +103,7 @@ class LinkedList
     return nil 
   end
 
-  def insert_at index, data
+  def insert_at(index, data)
     node = @head
     new_node = Node.new(data)
     temp_index = 0
@@ -121,7 +121,7 @@ class LinkedList
     @count += 1
   end
     
-  def remove_at index
+  def remove_at(index)
     node = @head
     temp_index = 0
     if temp_index == index
