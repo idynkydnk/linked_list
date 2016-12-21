@@ -108,15 +108,34 @@ class LinkedList
     new_node = Node.new(data)
     temp_index = 0
     if temp_index == index
+      new_node.next_node = @head
       @head = new_node
-      if 
-    elsif temp_index == (index - 1)
-      node.next_node =  
-      until temp_index == index
-      node = node.next_node
-      temp_index += 1
+    else
+      until temp_index == (index - 1)
+        node = node.next_node
+        temp_index += 1
+      end
+      new_node.next_node = node.next_node
+      node.next_node = new_node
     end
     @count += 1
+  end
     
- 
+  def remove_at index
+    node = @head
+    temp_index = 0
+    if temp_index == index
+      @head = @head.next_node
+    else
+      until temp_index == (index - 1)
+        node = node.next_node
+        temp_index += 1
+      end
+      node.next_node = node.next_node.next_node   
+      if node.next_node == nil
+        @tail = node
+      end
+      @count -= 1
+    end
+  end
  end

@@ -23,3 +23,22 @@ puts x.contains?(21).to_s
 puts x.contains?(1).to_s
 puts x.find(23).to_s
 puts x.find(323233).to_s
+
+y = LinkedList.new
+y.append(1)
+y.append(2)
+y.append(3)
+y.insert_at(0, 8)
+y.insert_at(1, 6)
+y.insert_at(4, 2323)
+y.pop
+y.pop
+y.to_s
+puts "size is " + y.size.to_s
+puts y.head.to_s
+puts y.tail.to_s
+y.remove_at(3)
+y.to_s
+puts y.head.to_s
+puts y.tail.to_s
+
